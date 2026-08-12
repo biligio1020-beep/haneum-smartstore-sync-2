@@ -32,8 +32,4 @@ jobs:
           HANEUM_PROXY_KEY: ${{ secrets.HANEUM_PROXY_KEY }}
           NAVER_STORE_SLUG: '1-2-'
           CAFE24_NAVER_PROXY_URL: 'https://rocknme.cafe24.com/newhome/api/naver-relay.php'
-          CAFE24_FTP_HOST: ${{ secrets.CAFE24_FTP_HOST }}
-          CAFE24_FTP_USER: ${{ secrets.CAFE24_FTP_USER }}
-          CAFE24_FTP_PASSWORD: ${{ secrets.CAFE24_FTP_PASSWORD }}
-          CAFE24_REMOTE_PRODUCTS_PATH: '/newhome/data/products.js'
         run: npm run sync
