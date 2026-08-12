@@ -1,0 +1,19 @@
+한음악기 GitHub 동기화 v3
+
+GitHub 저장소에서 아래 파일을 이 ZIP의 파일로 교체하세요.
+
+- package.json
+- scripts/category-rules.js
+- scripts/sync-products.js
+- .github/workflows/sync-products.yml
+
+GitHub Secrets 6개:
+- NAVER_CLIENT_ID
+- NAVER_CLIENT_SECRET
+- HANEUM_PROXY_KEY
+- CAFE24_FTP_HOST
+- CAFE24_FTP_USER
+- CAFE24_FTP_PASSWORD
+
+주의:
+HANEUM_PROXY_KEY는 Cafe24의 naver-relay.php 안 $PROXY_KEY와 반드시 같아야 합니다.
