@@ -1,0 +1,40 @@
+name: Sync SmartStore products
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Sync SmartStore to Cafe24
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          HANEUM_PROXY_KEY: ${{ secrets.HANEUM_PROXY_KEY }}
+          NAVER_STORE_SLUG: '1-2-'
+          CAFE24_NAVER_PROXY_URL: 'https://rocknme.cafe24.com/newhome/api/naver-relay.php'
+          CAFE24_FTP_HOST: ${{ secrets.CAFE24_FTP_HOST }}
+          CAFE24_FTP_USER: ${{ secrets.CAFE24_FTP_USER }}
+          CAFE24_FTP_PASSWORD: ${{ secrets.CAFE24_FTP_PASSWORD }}
+          CAFE24_REMOTE_PRODUCTS_PATH: '/newhome/data/products.js'
+        run: npm run sync
