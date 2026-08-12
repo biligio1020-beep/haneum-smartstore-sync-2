@@ -1,13 +1,12 @@
 {
   "name": "haneum-smartstore-sync",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "sync": "node scripts/sync-products.js"
   },
   "dependencies": {
-    "basic-ftp": "^5.0.5",
     "bcryptjs": "^2.4.3"
   }
 }
